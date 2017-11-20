@@ -1,0 +1,6 @@
+-Dcom.ibm.ws.jmx.connector.client.rest.readTimeout=180000
+-Xmx1024m
+-XX:MaxPermSize=512m
+-Dmfp.admin.db.type=DERBY
+-Dwas.debug.mode=true
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=10777
