@@ -14,7 +14,7 @@ services:
       - ./logs/:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/logs/:rw
       - ./resources/:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/resources/:rw
      #- ./apps:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/apps:rw
-      - ./wars/:/opt/wars:rw
+      - ./wars/:/home/wars:rw
       - ./analytics/:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/analyticsData/:rw
     ports:
       - 9080:9080
