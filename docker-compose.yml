@@ -3,9 +3,9 @@ networks:
   mfp:
     driver: bridge
 services:
-  mfp:
-    build: .
-    mem_limit: 1500m
+  devbox:
+    build: ./android
+    #mem_limit: 1500m
     command: /root/MobileFirst-8.0.0.0/run.sh
     volumes:
       - ./server.xml:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/server.xml:rw
@@ -20,16 +20,16 @@ services:
       - 9080:9080
     networks:
       - mfp
-  analytics:
-    image: elasticsearch:1.5
-    mem_limit: 512m
-    depends_on:
-      - mfp
-    volumes:
-      - ./analytics/worklight:/usr/share/elasticsearch/data/:rw
-    ports:
-      - 9200:9200
-      - 9300:9300
+  #analytics:
+  #  image: elasticsearch:1.5
+  #  mem_limit: 512m
+  #  depends_on:
+  #    - mfp
+  #  volumes:
+  #    - ./analytics/worklight:/usr/share/elasticsearch/data/:rw
+  #  ports:
+  #    - 9200:9200
+  #    - 9300:9300
   ship:
     image: portainer/portainer
     mem_limit: 50m
