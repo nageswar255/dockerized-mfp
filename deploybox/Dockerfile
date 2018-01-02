@@ -42,3 +42,6 @@ RUN which android
 
 # Cleaning
 RUN apt-get clean
+
+ENTRYPOINT /bin/bash
+CMD ["/bin/bash"]
