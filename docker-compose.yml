@@ -8,9 +8,13 @@ services:
     volumes:
       - ./webmob_gbm_barwa-oci_app:/opt/barwa:rw
       - /dev/bus/usb/:/dev/bus/usb/:ro
+      - ./deploybox/settings.xml:/usr/share/maven/conf/settings.xml:rw
     privileged: true
     devices: 
       - "/dev/bus/usb:/dev/bus/usb"
+    ports:
+      - 10081:10081
+      - 3001:3001
     networks:
       - barwa
   mobilefirst:
@@ -23,6 +27,7 @@ services:
       - ./logs/:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/logs/:rw
       - ./resources/:/root/MobileFirst-8.0.0.0/mfp-server/usr/servers/mfp/resources/:rw
       - ./wars/:/home/wars:rw
+      - ./webmob_gbm_barwa-oci_app:/opt/barwa:rw
     ports:
       - 9080:9080
     networks:

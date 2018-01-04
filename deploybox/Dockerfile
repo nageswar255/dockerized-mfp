@@ -15,6 +15,9 @@ RUN cd /opt && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-c
 # Add sonar scanner to PATH
 ENV PATH ${PATH}:/opt/sonar-scanner-3.0.3.778-linux/bin
 
+# Update settings.xml Maven config file
+COPY ./settings.xml /usr/share/maven/conf/settings.xml
+
 # Install Deps
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force-yes expect git wget libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 python curl libqt5widgets5 && apt-get clean && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -43,5 +46,4 @@ RUN which android
 # Cleaning
 RUN apt-get clean
 
-ENTRYPOINT /bin/bash
-CMD ["/bin/bash"]
+CMD tail -f /dev/null

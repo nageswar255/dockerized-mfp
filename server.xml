@@ -66,7 +66,7 @@
 	<logging traceSpecification="org.apache.wink.*=warning"/>
 	
     <application context-root="doc" id="swagger-ui" location="mfp-server-swagger-ui.war" name="swagger-ui" type="war"/>
-
+    <application name="BARWA" location="/opt/barwa/BarwaWeb/target/BARWA.war" type="war"></application>
     <!-- JNDI for the swagger ui, so the admin console can present a link to open the adapter information in the swagger ui -->
     <jndiEntry jndiName="mfpadmin/mfp.server.swagger.ui.url" value="/doc/?url=/&lt;context&gt;/api/adapterdoc/&lt;adapterName&gt;"/>
 
