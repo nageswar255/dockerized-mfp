@@ -4,11 +4,11 @@ networks:
     driver: bridge
 services:
   devbox:
-    build: ./deploybox
+    build: ./devbox
     volumes:
       - ./webmob_gbm_barwa-oci_app:/opt/barwa:rw
       - /dev/bus/usb/:/dev/bus/usb/:ro
-      - ./deploybox/settings.xml:/usr/share/maven/conf/settings.xml:rw
+      - ./devbox/settings.xml:/usr/share/maven/conf/settings.xml:rw
     privileged: true
     devices: 
       - "/dev/bus/usb:/dev/bus/usb"

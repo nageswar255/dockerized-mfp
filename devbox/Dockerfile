@@ -1,8 +1,8 @@
 FROM java:8
 MAINTAINER jemlifathi
 
-# Update and Install Git and Maven
-RUN apt-get update && apt-get --assume-yes install -y zip unzip apt-utils wget git maven
+# Update and Install Git and Maven and ftp-upload
+RUN apt-get update && apt-get --assume-yes install -y zip unzip apt-utils wget git maven lftp ftp-upload jq
 
 # Install node 6
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs
@@ -46,4 +46,5 @@ RUN which android
 # Cleaning
 RUN apt-get clean
 
+#ENTRYPOINT /opt/startup.sh
 CMD tail -f /dev/null
